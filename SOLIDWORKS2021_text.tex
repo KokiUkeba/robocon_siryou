@@ -7,6 +7,22 @@
 % 画像
 \usepackage[dvipdfmx]{graphicx}
 
+%ハイパーリンク
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper} % (u)pLaTeXのときのみかく
+\hypersetup{%
+ setpagesize=false,%
+ bookmarks=true,%
+ bookmarksdepth=tocdepth,%
+ bookmarksnumbered=true,%
+ colorlinks=true,%
+ anchorcolor=black,
+ linkcolor=black,
+ pdftitle={},%
+ pdfsubject={},%
+ pdfauthor={},%
+ pdfkeywords={}}
+
 \title{SolidWorks2021による3次元CAD}
 \author{からくりサークル有志}
 \date{\today}
@@ -19,61 +35,6 @@
 
 \section{はじめに}
 この資料はSOLIDWORKS2021を初めて使う人向けに書いたものであることをご理解いただきたい.また,文字による説明のみであるため,とっつきにくさを感じるかもしれないが,説明はかなり詳しく書いたつもりなので,なんとかなるはずである.
-\subsection{インストール方法}
-\begin{enumerate}
- \item 事前準備\\
- 以下を行っていない場合,正常にインストールされない可能性があるため,確認しておくこと.
- \begin{itemize}
-  \item Windows Updateを実施し,OSを最新の状態にしておく(設定のWindows Updateで確認できる).
-  \item セキュリティソフトの一時停止
-  \item その他常駐ソフトの一時停止
-  \item メモリ8GByte以上
-  \item C:の空き容量20GByte以上
- \end{itemize}
- \item インストール
- \begin{enumerate}
-  \item 熊大のWifiに接続する.
-  \item USB/SDカードを挿入し,setup.exeを実行する.
-  \item 3DデザインのSOLIDWORKSにチェックがついていることを確認.
-  \item 番号(9710  0087  1722  6474  CHNC  3259)を入力し,'次へ'をクリック.
-  \item 利用可能なより新しいバージョンがある場合インストールを希望し,'次へ'をクリック.
- \end{enumerate}
- \item サマリー画面
- \begin{enumerate}
-  \item 追加製品欄の'変更'をクリック.
-  \item 使用する製品の選択.
-  \begin{itemize}
-   \item Solidworks
-   \item Solidworksの言語(英語,日本語)
-   \item Solidworks Flow Simulation
-   \item Solidworks Simulation
-   \item Solidworks Motion
-  \end{itemize}
-  \item 左下にある'SOLIDWORKS 使用許諾契約の条項に同意します'にチェックをつける.
-  \item '今すぐインストール'をクリック.
-  \item SolidNetWork Licenseサーバのポート番号と,サーバ名を指定
-  \begin{enumerate}
-   \item Port@server欄に''25734@solidworks2021.mme.mech.kumamoto-u.ac.jp''を入力.
-   \item 'OK'をクリック.
-  \end{enumerate}
- \end{enumerate}
- \item インストレーション完了後'完了'をクリック.
- \item PCの再起動を行う.
-\end{enumerate}
-\subsection{ライセンスの更新}
-\begin{enumerate}
- \item パソコンが熊本大学のWifiに接続してあることを確認する.
- \item 'Windowsキー'を押し,'すべてのアプリ'を選択.
- \item 'SOLIDWORKS ツール 2021'を選択.
- \item 'SolidNetWork License Manager Client 2021'を選択.(OS側から注意が出るが'はい'を選択)
- \item 上部タブから'ライセンスを借りる'を選択.
- \item 一度ライセンスを返却する.(借用製品ライセンスの欄にSOLIDWORKS Premiumがないことを確認する)
- \item 'カレンダーのマーク'を選択し,４週間先の日を選択する.(ライセンスは最大30日借りられる)
- \item 'SolidWorks Premium'を選択し,注意書きのようなものが出たら'OK'を選択.(Premiumを選択するとStandardも勝手に選ばれるが,正常なことなので気にしなくて良い)
- \item '借りる'を選択.(借用ライセンスの欄にSOLIDWORKS Premium/Standardがあることを確認する)
- \item 右下'OK'をクリック.(その後,SOLIDWORKS 2021を起動しライセンス期限が延長されていることを確認する)
-\end{enumerate}
-\clearpage
 \subsection{前提知識}
 名称などは覚える必要はない.読み進める途中で知らない名称が出てきたとき,ここに返ってくるぐらいの気持ちで大丈夫である.
 \begin{figure}[h]
@@ -94,6 +55,7 @@
  ⑦ステータスバー & メッセージや作業の情報が表示される \\
 \end{tabular}
 \end{table}
+\clearpage
 \subsubsection{各種コマンド}
 コマンドは知っておくと操作がかなり楽になるため,この節は一見の価値があるだろう.
 \begin{itemize}
@@ -282,7 +244,7 @@
  \end{enumerate}
  \item 必要な分だけ部品の挿入と合致を繰り返す.
 \end{enumerate}
-\subsection{合致}
+\subsection{合致}\label{gatti}
 合致は,アセンブリをする際に最も重要なものである.\\
 合致によって,挿入したパーツ同士の関係を定義できるのであるが,適当に合致をすると,現実世界ではありえない固定のされ方をした設計となることがある(ネジがないのに固定されている等)ため,慎重に行う必要がある.しかし,うまく合致を行うことで,アセンブリ内で実際の動きを再現させることができる.以下に主に使われる合致と,使用例を示す.
 \clearpage
